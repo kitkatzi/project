@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Register || สมัครสมาชิก</title>
+</head>
+<body>
+     <div class="container">
+
+     <div class="headar">
+
+          <h2>สมัครสมาชิก</h2>
+     </div>
+          <form action="register2.php" method="post">
+
+               <div>
+                    <label for="name">name</label>
+                    <input type="text" name="name" required>
+               </div>
+
+               <div>
+                    <label for="lastname">lastname</label>
+                    <input type="text" name="lastname" required>
+               </div>
+
+               <div>
+                    <label for="password">password</label>
+                    <input type="password" name="password" required>
+               </div>
+
+               <div>
+                    <label for="name">ยืนยันรหัสผ่านอีกครั้ง</label>
+                    <input type="text" name="password2" required>
+               </div>
+
+               <button type="submit">ยืนยันการสมัคร</button> 
+               <p>login?<a href="login.php"><b>log in</b></a></p>
+
+
+
+          </form>
+
+
+     </div>
+</body>
+</html>
