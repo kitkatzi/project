@@ -51,7 +51,7 @@
                                 <input type="text" name="username" placeholder="ชื่อผู้ใช้งานเข้าระบบ Log in" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
                                 </div>
                                 <div class="form-group mb-3">
-                                <input type="password" name="password" placeholder="รหัสผ่าน" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                <input type="password" name="password" placeholder="รหัสผ่าน" required="" class="form-control rounded-pill border-0 shadow-sm px-4">
                                 </div>
                              <!--   <div class="custom-control custom-checkbox mb-3">
                                     <input id="customCheck1" type="checkbox" checked class="custom-control-input">

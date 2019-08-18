@@ -10,7 +10,7 @@ include 'config.php';
         $password = $_POST['password'];
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
-        $userlevel = $_POST['userlevel'];
+        
 
         $sql = "INSERT INTO member (username, password, firstname, lastname, userlevel)
                         VALUE ('$username', '$password', '$firstname', '$lastname', 'm')";
@@ -21,7 +21,7 @@ include 'config.php';
                echo "
                     <script>
                     alert('บันทึกข้อมูลสำเร็จ')
-                    windonw.location = 'login.php';
+                    windonw.location.href = 'login.php';
                     </script>
                ";
           } else {
@@ -33,18 +33,18 @@ include 'config.php';
 
      //login
  if ($_GET['cmd'] == "login") {
-      # code...
+
       $strSQL = "SELECT * FROM member WHERE username = '".mysqli_real_escape_string($conn,$_POST['username'])."'
                and password = '".mysqli_real_estring($conn,$_POST['password'])."'";
 
           $objQuery = mysqli_query($conn,$strSQL);
           $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
           if (!$objResult) {
-               # code...
+               
                echo "
                     <script>
                     alert('ชื่อผู้ใช้งาน หรือ รหัสผ่าน ไม่ถูกต้อง');
-                    windonw.location = 'login.php';
+                    windonw.location.href = 'login.php';
                     </script>
                ";
           }else{

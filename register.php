@@ -47,7 +47,7 @@
                             <h3 class="display-4">สมัครชื่อผู้ใช้งาน</h3>
                             <p class="text-muted mb-4">กรอกรายละเอียดผู้ใช้งาน</p>
                             
-                            <form class="form-signin" action="process.php?cmd=register" method="post">
+                            <form action="process.php?cmd=register" method="post">
                                
                                 <div class="form-group mb-3">
                                     <input type="text" placeholder="ชื่อ" name="firstname"   autofocus=""
@@ -60,12 +60,12 @@
                                 </div><br>
                                                         
                                 <div class="form-group mb-3">
-                                    <input type="text" placeholder="ชื่อผู้ใช้งานเข้าระบบ Log in" name="user"  required=""  
+                                    <input type="text" placeholder="ชื่อผู้ใช้งานเข้าระบบ Log in" name="username"  required=""  
                                     class="form-control rounded-pill border-0 shadow-sm px-4">
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <input type="password" placeholder="รหัสผ่าน" name="Password" required="" 
+                                    <input type="password" placeholder="รหัสผ่าน" name="password" required="" 
                                     class="form-control rounded-pill border-0 shadow-sm px-4 ">
                                 </div>                             
                                 <br>
