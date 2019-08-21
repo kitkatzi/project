@@ -21,7 +21,7 @@ include 'config.php';
                echo "
                     <script>
                     alert('บันทึกข้อมูลสำเร็จ')
-                    windonw.location.href = 'login.php';
+                    windonw.location = 'login.php'
                     </script>
                ";
           } else {
@@ -34,33 +34,49 @@ include 'config.php';
      //login
  if ($_GET['cmd'] == "login") {
 
-      $strSQL = "SELECT * FROM member WHERE username = '".mysqli_real_escape_string($conn,$_POST['username'])."'
-               and password = '".mysqli_real_estring($conn,$_POST['password'])."'";
 
-          $objQuery = mysqli_query($conn,$strSQL);
-          $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
-          if (!$objResult) {
-               
-               echo "
-                    <script>
-                    alert('ชื่อผู้ใช้งาน หรือ รหัสผ่าน ไม่ถูกต้อง');
-                    windonw.location.href = 'login.php';
-                    </script>
-               ";
-          }else{
-               $_SESSION['username'] = $objResult['username'];
-               $_SESSION['password'] = $objResult['password'];
-               $_SESSION['userlevel'] = $objResult['username'];
-               session_write_close();
+    //รับค่า user & password
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+      //query 
 
-               if($objResult['userlevel'] == 'a'){
-                    header("location:admin/index_admin.php");
-                } else if ($objResult['userlevel'] == 'm'){
-                    header("location:user/index_user.php");
-                }
-          }mysqli_close($conn);
+    $sql="SELECT * FROM member Where username='".$username."' and password='".$password."' ";
+
+    $result = mysqli_query($conn,$sql);
+      
+    if(mysqli_num_rows($result)==1){
+
+        $row = mysqli_fetch_array($result);
+
+        $_SESSION["userid"] = $row["id"];
+        $_SESSION["member"] = $row["firstname"]." ".$row["lastname"];
+        $_SESSION["userlevel"] = $row["userlevel"];
+
+        if($_SESSION["userlevel"]=="a"){ //ถ้าเป็น admin ให้กระโดดไปหน้า admin_page.php
+
+          Header("Location:admin/index_admin.php");
+
+        }
+
+        if ($_SESSION["userlevel"]=="m"){  //ถ้าเป็น member ให้กระโดดไปหน้า user_page.php
+
+          Header("Location:user/index_user.php");
+
+        }
+
+    }else{
+      echo "<script>";
+          echo "alert(\" user หรือ  password ไม่ถูกต้อง\");"; 
+          echo "window.history.back()";
+      echo "</script>";
+
+    }
+
+     }else{
 
 
+Header("Location: login.php"); //user & password incorrect back to login again
+     
  }    
 
 
